@@ -1,4 +1,4 @@
-Main code taken from [Alexanbj/programming-ladder](https://github.com/alexanbj/programming-ladder/tree/julekalender)
+Main code taken from [Alexanbj/programming-ladder](https://github.com/alexanbj/programming-ladder/tree/julekalender).
 The main code and schemas remain, but some improvements have been made.
 
 A project Euler clone written with the lovely Meteor framework. Utilizes JavaScript, Stylus and some leftover CoffeeScript.
