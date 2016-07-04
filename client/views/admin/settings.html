@@ -1,0 +1,9 @@
+<template name="settings">
+    <h2 class="borders center-text">Inställningar</h2>
+    <button id="clear-activity-stream" class="btn big"><i class="fa fa-trash"></i> Rensa aktivitetsfält</button>  
+    {{#if this.hasSettings}}
+      {{> quickForm collection="Settings" id="updateSettingsForm" type="update" doc=this.settings template="bootstrap3-horizontal" label-class="control-label" input-col-class="controls"}}
+    {{else}}
+      {{> quickForm collection="Settings" id="updateSettingsForm" type="insert" template="bootstrap3-horizontal" label-class="control-label" input-col-class="controls"}}
+    {{/if}}
+</template>

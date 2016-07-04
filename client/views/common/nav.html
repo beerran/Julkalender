@@ -1,0 +1,39 @@
+<template name="nav">
+    <nav role="navigation">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-toggle">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="nav-header">
+                    <a href="{{pathFor 'home'}}">
+                        <img class="navbar-logo" src="/knowit-logo-black.png">
+                        <span class="navbar-brand" href="{{pathFor 'home'}}">
+                 Julkalender
+               </span>
+                    </a>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="navbar-title">
+                        <img src="/knowit-logo-black.png">
+                        <i class="fa fa-times close-nav"></i>
+                    </li>
+                    <li><a href="{{pathFor 'leaderboard'}}" class="{{activeIfTemplateIs 'leaderboard'}}">Ledartavla</a></li>
+                    <li><a href="{{pathFor 'problems'}}" class="{{activeIfTemplateIs 'problems'}}">Luckor</a></li>
+                    {{#with currentUser}}
+                    <li><a href="{{pathFor 'profile'}}" class="{{activeIfTemplateIs 'profile'}}">Profil</a></li>
+                    {{/with}}
+                    <li><a href="{{pathFor 'about'}}" class="{{activeIfTemplateIs 'about'}}">Information</a></li>
+                    {{#if currentIsAdmin}}
+                    <li><a href="{{pathFor 'adminMain'}}" class="{{activeIfTemplateIs 'adminMain'}}">Admin</a></li>
+                    {{/if}}
+                    {{#if currentUser}}
+                    <li><a href="#" id="signOut" title="Logga ut">Logga ut</a></li>
+                    {{else}}
+                    <li><a href="{{pathFor 'atSignIn'}}" title="Logga in">Logga in</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>

@@ -1,0 +1,295 @@
+@import 'variables.styl'
+
+/* Styles for AutoForm & QuickForm */
+
+#updateSettingsForm, #problemForm {
+  .help-block {
+    display:none;
+  }
+}
+
+.form-group {
+  &:first-child {
+    margin-top:20px;
+  }
+}
+.at-input, .form-group {
+  label.control-label {
+    column(3/8)
+    line-height:40px;
+    text-align: right;
+    font-size:1.1em;
+    font-style: italic;
+    color:black;
+    line-height: 1.2em;
+
+    +below(tablet-size) {
+      column(4/5, 1/10)
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+  }
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    column(2/4)
+
+    +below(tablet-size) {
+      column(4/5, 1/10)
+    }
+  }
+
+  .controls .checkbox, .checkbox {
+    &:first-child {
+      margin-top:20px;
+    }
+    column(2/4, 1/4)
+
+    +below(tablet-size) {
+      column(4/5, 1/10)
+    }
+  }
+
+  margin-bottom:20px;
+  column(1)
+}
+
+.help-block {
+  column(2/4, 3/8)
+  margin-top:10px;
+  background:red-light;
+  padding:10px;
+  border:1px solid red;
+
+  &.hide {
+    display: none;
+  }
+
+  +below(tablet-size) {
+    column(4/5, 1/10)
+  }
+}
+
+.at-title {
+  h3 {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin:10px 0;
+  }
+}
+
+
+#at-btn, button[type="submit"] {
+
+  // Forcera bort Stylus Jeet Grid-defaults
+  &.center {
+    column(2/4,1/4)
+  }
+  column(2/4, 1/4)
+  font-size:1em;
+  margin-top:0;
+
+  +below(tablet-size) {
+    // Forcera bort Stylus Jeet Grid-defaults    
+    &.center {
+      column(1)
+    }
+    column(1)
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
+
+  +above(tablet-size) {
+    margin-bottom:20px;
+  }
+}
+
+.col-md-6 {
+  .at-form {
+    column(3/8)
+    +above(tablet-size) {
+      align()
+    }
+    +below(tablet-size) {
+      margin:50px 0;
+      span(10/12, 1/12)
+    }
+  }
+}
+
+.at-form, form {
+  column(1)
+  background: #fff;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  box-shadow: 3px 3px 3px gray-light;
+  padding:0;
+  margin:0;
+  overflow: hidden;
+
+  fieldset {
+    border:none;
+    margin:0;
+    padding:0;
+  }
+
+  &.comment-form, &.answer-form {
+    background: none;
+    box-shadow: none;
+    button[type="submit"] {
+      margin-bottom:0;
+
+      +below(tablet-size) {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+.at-pwd-link {
+  column(2/4, 1/4)
+}
+
+.at-signup-link {
+  text-align: center;
+}
+
+.at-signin-link, .at-signup-link {
+  clear:both;
+  padding-top:20px;
+}
+
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    span(5/16, 2/8)
+    height:30px;
+    border:1px solid purple-dark;
+    padding:5px 10px;
+    color:gray;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-size:1.1em;
+    outline: none;
+  }
+
+form {
+  .row, .form-group {
+    span(1)
+  }
+  position: relative;
+}
+  textarea, .comment{
+    span(3/4, 1/8)
+    +below(tablet-size) {
+      span(1)
+    }
+    border:1px solid purple-dark;
+    padding:10px 10px;
+    color:gray;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    font-size:1.1em;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    outline: none;
+    background:#fff;
+    box-sizing: border-box;
+  }
+
+ul.comments {
+  list-style: none;
+  margin:0;
+  padding:0;
+
+  .comment {
+    &:first-child {
+      margin-top:20px;
+    }
+
+    margin-bottom:20px;
+    position:relative;
+    padding:0;
+
+    .header {
+      span(1)
+      height:40px;
+    }
+
+    .author {
+      position:absolute;
+      top:0;
+      left:0;
+      padding:10px;
+      background:yellow-light;
+      color:black;
+      font-weight:600;
+      border-bottom-right-radius: 0.5em;
+    }
+
+    p {
+      padding:0 10px;
+      font-size: 1em;
+      color:gray-dark;
+    }
+
+    .datePosted {
+      position:absolute;
+      bottom:5px;
+      right:5px;
+      font-size:0.8em;
+      font-style:italic;
+      color:gray;
+    }
+
+    .delete {
+      position:absolute;
+      top:5px;
+      right:5px;
+      border-top-right-radius: 0.5em;
+      color:red-dark;
+      background: red-light;
+      border:none;
+      font-weight: 600;
+      &:hover {
+        background: red;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+.form-group .controls button[type="submit"] {
+  span(5/16, 3/8)
+}
+
+  button[type="submit"] {
+    span(3/16)
+    border:1px solid purple-dark;
+    text-align: center !important;
+    height:42px;
+    background: purple-lighter;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size:1em;
+    outline: none;
+    &:hover {
+      cursor:pointer;
+      color:#fff;
+      background: purple-light;
+    }
+    &.onInput {
+      border-left: none;
+      position:relative;
+      left:-15px;
+    }
+    &.onTextarea {
+      span(1/4, 5/8)
+      +below(tablet-size){
+        span(1/2, 1/2)
+        right:0;
+      }
+      border-top:none;
+      position:relative;
+      top:-1px;
+    }
+  }

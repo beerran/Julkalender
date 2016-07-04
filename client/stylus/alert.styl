@@ -1,0 +1,52 @@
+.at-result {
+  padding:5px 20px;
+}
+
+.alert {
+  position:relative;
+  span(1)
+  border-radius:0.5em;
+  &.hide {
+    display:none;
+  }
+  p {
+    padding: 5px 20px;
+  }
+
+  .close {
+    position:absolute;
+    top:5px;
+    right:5px;
+    border-top-right-radius: 0.5em;
+    border:none;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.success, &.alert-success {
+    background: green-lighter;
+
+    .close {
+      background: green-light;
+      &:hover {
+        background: green;
+      }
+    }
+  }
+
+  &.danger, &.alert-danger {
+    background: red-lighter;
+
+    .close {
+      background: red-light;
+      &:hover {
+        background: red;
+      }
+    }
+  }
+
+  box-shadow:0 3px 3px gray-light;
+  margin-bottom: 20px;
+}

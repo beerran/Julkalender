@@ -1,0 +1,19 @@
+<template name="adminMain">
+  <h1 class="huge borders center-text">Admin</h1>
+  <div class="tab-group">
+    <ul class="tab-nav">
+      <li class="tab {{#if isActiveTab 'users'}}active{{/if}}" data-name="users">Användare</li>
+      <li class="tab {{#if isActiveTab 'problems'}}active{{/if}}" data-name="problems">Problem</li>
+      <li class="tab {{#if isActiveTab 'settings'}}active{{/if}}" data-name="settings">Inställningar</li>
+    </ul>
+    <div class="tab-content {{#if isActiveTab 'users'}}active{{/if}}">
+      {{> adminUsers}}
+    </div>
+    <div class="tab-content {{#if isActiveTab 'problems'}}active{{/if}}">
+      {{> adminProblems}}
+    </div>
+    <div class="tab-content {{#if isActiveTab 'settings'}}active{{/if}}">
+      {{> settings}}
+    </div>
+  </div>
+</template>

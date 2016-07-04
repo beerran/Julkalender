@@ -1,0 +1,14 @@
+<template name="activitystream">
+    <div class="activity-list activity">
+        {{#each activities}}
+        <div class="activity">
+                <div class="created-at">{{formatDate created_at}}</div>
+                <p class="title">{{title}}</p>
+                <p class="content">{{{content}}}</p>
+            {{#if currentIsAdmin}}
+                <button type="button" class="close">&times;</button>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</template>

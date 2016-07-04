@@ -1,0 +1,27 @@
+<template name="home">
+    <div class="center-text">
+            <img src="/assets/Knowit_nisselue_2x.png"
+            alt="Knowit logo" class="knowit-home">
+            <h1>Knowits Julkalender</h1>
+
+            <p>För en lite mer nördig julkänsla</p>
+            <p>
+                Varje lucka i julkalendern döljer ett julproblem i form av en programmeringsövning.
+                <br>
+                Välj teknologi själv och sätt kodfinrarna i arbete.
+                <br>
+                Ett nytt problem varje dag!
+            </p>
+
+            <p>En värdig vinnare får en [x] som julklapp från Knowit!</p>
+            <p>God jul och lycka till! Hälsningar Knowit-nissen.</p>
+            {{#if currentUser}}
+                <p><a class="btn big success" href="{{pathFor 'problems'}}" role="button">Ta mig till luckorna!</a></p>
+            {{else}}
+                <p>
+                  <a class="btn big success" href="{{pathFor 'atSignIn'}}" role="button">Logga in!</a>
+                  <a class="btn big" href="{{pathFor 'atSignUp'}}" role="button">Registrera!</a>
+                </p>
+            {{/if}}
+    </div>
+</template>

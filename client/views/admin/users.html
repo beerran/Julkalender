@@ -1,0 +1,32 @@
+<template name="adminUsers">
+  <h2 class="borders center-text">Användare</h2>
+    <div class="table table-3">
+        <div class="headings">
+            <p><span>User</span></p>
+            <p><span>Solved</span></p>
+            <p><span>Actions</span></p>
+        </div>
+        {{#each users}}
+        <div class="table-row">
+            <div class="table-col">
+                <p>{{username}}</p>
+            </div>
+            <div class="table-col">
+                <p>{{solved}}/24</p>
+            </div>
+            <div class="table-col">
+                <p>
+                    {{#if isAdmin}}
+                    <button class="btn success admin-toggle"><i class="fa fa-user"></i> Admin</button>
+                    {{else}}
+                    <button class="btn admin-toggle"><i class="fa fa-user"></i> Admin</button>
+                    {{/if}}
+                    <button class="btn danger user-delete"><i class="fa fa-trash"></i> Delete</button>
+                </p>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    <div class="clear"></div>
+</template>

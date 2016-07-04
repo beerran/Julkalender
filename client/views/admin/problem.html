@@ -1,0 +1,23 @@
+<template name="editProblem">
+  <h1 class="huge borders center-text">Admin</h1>
+  <div class="tab-group">
+    <ul class="tab-nav">
+      <li class="tab" data-name="users"><a href="{{pathFor 'adminRoute' q='users'}}">Användare</a></li>
+      <li class="tab active" data-name="problems"><a href="{{pathFor 'adminRoute' q='problems'}}">Problem</a></li>
+      <li class="tab" data-name="settings"><a href="{{pathFor 'adminRoute' q='settings'}}">Inställningar</a></li>
+    </ul>
+    <div class="tab-content active">
+      <h2 class="borders center-text">{{getTitle}}</h2>      
+      {{# autoForm collection="Problems" id="problemForm" type=autoFormType doc=problem template="bootstrap3-horizontal" label-class="control-label" input-col-class="controls"}}
+          {{> afFormGroup name='title'}}
+          {{> afFormGroup name='description' rows=6}} {{!-- Adding the rows property turns it into a textarea --}}
+          {{> afFormGroup name='draft'}}
+          {{> afFormGroup name='activeFrom' type='datetime-local'}}
+          {{> afFormGroup name='activeTo' type='datetime-local'}}
+          {{> afFormGroup name='solution'}}
+          <div class="clear"></div>
+          <button type="submit" class="center">Spara</button>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>

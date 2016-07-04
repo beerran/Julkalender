@@ -1,0 +1,16 @@
+<template name="leaderboard">
+      <h1 class="center-text huge borders">Ledartavla</h1>
+      <div class="leaderboard">
+        <div class="headings">
+          <span>Användare</span>
+          <span>Luckor</span>
+        </div>
+        {{#each users}}
+        <div class="entry">
+          <span class="rank">{{rank}}</span>
+          <span>{{username}}</span>
+          <span>{{solved}}/24</span>
+        </div>
+        {{/each}}
+      </div>
+</template>

@@ -1,0 +1,73 @@
+<template name="adminProblems">
+    <h2 class="borders center-text">Problem (Publicerade)</h2>
+    <div class="table table-4">
+        <div class="headings">
+            <p class="small"><span>Titel</span></p>
+            <p><span>Aktiv fr.o.m</span></p>
+            <p><span>Aktiv t.o.m</span></p>
+            <p class="big"><span>Åtgärder</span></p>
+        </div>
+        {{#each active}}
+        <div class="table-row">
+            <div class="table-col small">
+                <p> {{#if isDateBeforeNow activeFrom}} {{title}} {{else}}
+                    <a href="{{pathFor 'showProblem'}}" title="Go to problem">{{title}}</a> {{/if}}
+                </p>
+            </div>
+            <div class="table-col">
+                <p>{{dateFormat activeFrom 'DD/MM/YYYY HH:mm'}}</p>
+            </div>
+            <div class="table-col">
+              {{#if activeTo}}
+                <p>{{dateFormat activeTo 'DD/MM/YYYY HH:mm'}}</p>
+                {{else}}
+                <p>Ej satt</p>
+                {{/if}}
+            </div>
+            <div class="table-col big">
+                <p> <a href="{{pathFor 'editProblem'}}" class="btn" title="Edit problem"><i class="fa fa-pencil-square-o"></i> Ändra</a>
+                    <button class="draft btn" title="Set as draft"><i class="fa fa-eye-slash"></i> Utkast</button>
+                    <button class="delete btn danger" title="Delete problem"><i class="fa fa-trash"></i> Ta bort</button>
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a href="{{pathFor 'newProblem'}}"><i class="fa fa-plus hidden-xs"></i> Lägg till nytt problem</a>
+
+    <h2 class="borders center-text">Problem (Utkast)</h2>
+
+    <div class="table table-4">
+        <div class="headings">
+          <p class="small"><span>Titel</span></p>
+          <p><span>Aktiv fr.o.m</span></p>
+          <p><span>Aktiv t.o.m</span></p>
+          <p class="big"><span>Åtgärder</span></p>
+        </div>
+        {{#each drafts}}
+        <div class="table-row">
+            <div class="table-col small">
+                <p> {{#if isDateBeforeNow activeFrom}} {{title}} {{else}}
+                    <a href="{{pathFor 'showProblem'}}" title="Go to problem">{{title}}</a> {{/if}}
+                </p>
+            </div>
+            <div class="table-col">
+                <p>{{dateFormat activeFrom 'DD/MM/YYYY HH:mm'}}</p>
+            </div>
+            <div class="table-col">
+              {{#if activeTo}}
+                <p>{{dateFormat activeTo 'DD/MM/YYYY HH:mm'}}</p>
+                {{else}}
+                <p>Ej satt</p>
+                {{/if}}
+            </div>
+            <div class="table-col big">
+                <p> <a href="{{pathFor 'editProblem'}}" class="btn" title="Edit problem"><i class="fa fa-pencil-square-o"></i> Ändra</a>
+                    <button class="publish btn" title="Set as draft"><i class="fa fa-eye-slash"></i> Publicera</button>
+                    <button class="delete btn danger" title="Delete problem"><i class="fa fa-trash"></i> Ta bort</button>
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</template>

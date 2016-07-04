@@ -1,0 +1,31 @@
+<template name="sidebar">
+    <h1 class="center-text huge borders">Julkalendern</h1>
+    <div class="calendar">
+        {{#each problems}} {{#if active}}
+        <div title="Lucka {{title}}" alt="Lucka {{title}}" class="box">
+            <a href="{{pathFor 'showProblem'}}">
+                <div class="img-container {{#if currentUser}}{{#if answers.[0].solved}}isSolved{{/if}}{{/if}}">
+                    {{#if currentUser}} {{#if answers.[0].solved}}
+                    <i class="solved"></i> {{/if}} {{/if}}
+                    <img src="{{image}}" />
+                </div>
+                <div class="static-content">
+                    {{#if currentUser}}
+                    {{#if answers.[0].solved}}
+                    <img src="{{solvedImage}}" />
+                    {{else}}
+                    <img src="/assets/questionmark.png" />
+                    {{/if}}
+                    {{else}}
+                    <img src="/assets/questionmark.png" />
+                    {{/if}}
+                    <div class="shadowBox"></div>
+                </div>
+            </a>
+        </div>
+
+        {{else}}
+        <div class="box disabled"></div>
+        {{/if}} {{/each}}
+    </div>
+</template>

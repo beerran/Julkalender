@@ -1,0 +1,13 @@
+<template name="notAuthorized">
+    <div class="center-text">
+        <img src="/assets/Knowit_nisselue_2x.png" alt="Knowit logo" class="knowit-home">
+        <h1>Knowits Julkalender</h1>
+
+        <p>Du måste vara inloggad {{#if currentUser}}som administratör {{/if}}för att se denna sida</p>
+
+        <p>
+            <a class="btn big success" href="{{pathFor 'atSignIn'}}" role="button">Logga in!</a>
+            <a class="btn big" href="{{pathFor 'atSignUp'}}" role="button">Registrera!</a>
+        </p>
+    </div>
+</template>

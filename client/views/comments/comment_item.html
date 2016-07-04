@@ -1,0 +1,21 @@
+<template name="comment_item">
+    <li class="comment shadow" id="{{_id}}">
+        <div class="header">
+            {{#if currentIsAdmin}}
+            <button class="delete"><i class="fa fa-trash"></i> Ta bort</button>
+            {{else}} {{#if is_own_comment}}
+            <button class="delete"><i class="fa fa-trash"></i> Ta bort</button>
+            {{!--
+            <button class="edit pull-right btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i> Redigera</button>--}} {{/if}} {{/if}}
+            <div class="author">
+                {{author}}
+            </div>
+        </div>
+        <p class="comment-text markdown">
+            {{{htmlBody}}}
+        </p>
+        <div class="datePosted">
+            {{dateFormat postedAt 'DD.MM.YYYY HH:mm'}}
+        </div>
+    </li>
+</template>

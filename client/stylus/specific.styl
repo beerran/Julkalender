@@ -1,0 +1,234 @@
+@import 'variables.styl'
+
+.knowit-home {
+  width:100%;
+  max-width:180px;
+}
+
+footer {
+  background: black;
+  margin-top:20px;
+  color:white;
+  padding:40px 0;
+
+  .side {
+    column(2/6)
+
+    +below(tablet-size) {
+      column(3/6)
+    }
+  }
+
+  .middle {
+    column(2/6)
+    text-align: center;
+
+    i, a {
+      color:red-dark;
+    }
+
+    a:hover {
+      color:red;
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin:5px 0;
+      &:first-child {
+        margin:0;
+      }
+      font-size:1.2em;
+      font-weight:600;
+      a {
+        color:gray-lighter;
+        &:hover {
+          color:green-light;
+        }
+      }
+    }
+  }
+}
+
+.leaderboard {
+  span(1)
+  box-shadow: 3px 3px 3px gray-light;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+
+  .headings {
+    background:red-dark;
+    height:40px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    span {
+      color: white;
+      font-weight:600;
+      display:block;
+      line-height:40px;
+      span(2/5)
+      &:first-child {
+        span(2/5, 1/5)
+      }
+    }
+  }
+
+  .entry {
+    height:30px;
+    line-height: 30px;
+    position: relative;
+    span {
+      span(2/5)
+      &:first-child {
+        span(1/5)
+        text-align: center;
+      }
+    }
+    &:nth-child(2n) {
+      background:lighten(gray-lighter, 33%);
+    }
+    &:nth-child(2) .rank:before, &:nth-child(3) .rank:before, &:nth-child(4) .rank:before {
+      content: url('/medal-gold-icon.png');
+      width: 16px;
+      height: 16px;
+      position:absolute;
+      top:3px;
+      left:10px;
+    }
+    &:nth-child(3) .rank:before {
+      content: url('/medal-silver-icon.png');
+    }
+    &:nth-child(4) .rank:before {
+      content: url('/medal-bronze-icon.png');
+    }
+    background:white;
+    &:hover {
+      background:green-lighter;
+    }
+  }
+}
+
+.banner {
+    width: 100%;
+    background-image: url('/banner-mid.png');
+    height:85px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    top:-40px;
+    text-align: center;
+    line-height: 98px;
+    color:yellow;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px yellow-dark;
+    font-size:1.5em;
+    z-index:10;
+    transform: rotate(5deg);
+
+  &:before {
+    content:'';
+    width:80px;
+    background-image: url('/banner-left.png');
+    height:85px;
+    background-position: left top;
+    position:absolute;
+    top:0;
+    margin-left:-130px;
+  }
+
+  &:after {
+    content:'';
+    width:80px;
+    background-image: url('/banner-right.png');
+    height:85px;
+    background-position: right top;
+    position: absolute;
+    top:6px;
+    margin-left:51px;
+  }
+}
+
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.03); }
+    100% { -webkit-transform: scale(1); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+.pulse {
+    -webkit-animation: pulse 2s infinite;
+    animation-name: pulse 2s infinite;
+}
+
+code {
+  word-break:break-all;
+  background:gray-lighter;
+  display:block;
+  margin:10px 0;
+  padding:10px;
+  position:relative;
+
+  &.center {
+    text-align: center;
+  }
+
+  i.red {
+    font-style: normal;
+    font-weight: 600;
+    color:red-dark;
+  }
+
+  &::selection {
+      color: gray-lighter;
+      background: black;
+  }
+
+  button.copy {
+    padding:10px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:black;
+    color:gray-lighter;
+    border:none;
+    font-weight:600;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+      cursor:pointer;
+    }
+    &:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  &.clicked:after {
+    width: 120%;
+    background-color: rgba(255,255,255,0);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  }
+}
+
+img.problem-img {
+  margin:10px 0;
+  center()
+}
