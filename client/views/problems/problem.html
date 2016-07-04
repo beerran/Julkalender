@@ -37,9 +37,9 @@
             <button type="submit" class="onInput" id="answerButton">Svara</button>
         </form>
         {{else}}
-        <div class="alert alert-info" role="alert">
+        <p id="login">
             Vänligen <a href="{{pathFor 'atSignIn'}}" class="alert-link">logga in</a> eller <a href="{{pathFor 'atSignUp'}}" class="alert-link">registrera dig</a> för möjligheten att lösa luckan och bli med i utlottningen av [x]!
-        </div>
+        </p>
         {{/if}} {{else}} {{#unless solved}}
             <p id="inactiveAnswer">Det är inte längre möjligt att svara på den här luckan, men du kan ju försöka lösa den ändå för skojs skull!</p>
         {{/unless}} {{/unless}}
