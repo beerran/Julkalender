@@ -1,4 +1,7 @@
-A project Euler clone written with the lovely Meteor framework. Utilizes JavaScript, Bootstrap and some leftover CoffeeScript.
+Main code taken from [Alexanbj/programming-ladder](https://github.com/alexanbj/programming-ladder/tree/julekalender)
+The main code and schemas remain, but some improvements have been made.
+
+A project Euler clone written with the lovely Meteor framework. Utilizes JavaScript, Stylus and some leftover CoffeeScript.
 
 # Installation
 - Install [Meteor](http://meteor.com)
