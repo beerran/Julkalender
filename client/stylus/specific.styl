@@ -232,3 +232,34 @@ img.problem-img {
   margin:10px 0;
   center()
 }
+
+.panel {
+  position:relative;
+  .languages {
+    position:absolute;
+    top:5px;
+    right:5px;
+    z-index:9;
+
+    #swedish, #english {
+      display:inline-block;
+      padding:0;
+      margin:0;
+      width:35px;
+      height:28px;
+      background:rgba(0,0,0,0.33);
+      background-image:url('/sweden.png');
+      background-repeat: none;
+      opacity:0.5;
+      cursor:pointer;
+      transition: all 300ms ease-out;
+      &.active {
+        opacity: 0.8;
+      }
+    }
+    #english {
+      background-image: url('/usa.png');
+      border-top-right-radius: 0.5em;
+    }
+  }
+}

@@ -5,6 +5,9 @@ Template.showProblem.events
       template.$(event.target).dequeue();
     );
 
+  'click .languages span': (event, template) ->
+    Session.set('activeLanguage', template.$(event.target).attr('id'));
+
   'click .close': (event, template) ->
     console.log(template.$(event.target.parentElement))
     template.$(event.target.parentElement).hide()

@@ -1,32 +1,40 @@
 <template name="showProblem">
     <h1 class="center-text huge borders">Lucka {{title}}{{#if currentIsAdmin}}<br />
                             <a href="{{pathFor 'editProblem'}}" style="font-size:0.3em">(Ändra)</a>
-                    {{/if}}</h1>
-
-    {{#if solved}}
+                    {{/if}}</h1> {{#if solved}}
     <div class="alert success hide">
         <button type="button" class="close" style="display:block">&times;</button>
         <p>
-          <strong>God jul på dig!</strong> Ditt svar var korrekt. Du har nu löst {{currentUser.solved}} av 24 luckor!
+            <strong>God jul på dig!</strong> Ditt svar var korrekt. Du har nu löst {{currentUser.solved}} av 24 luckor!
         </p>
     </div>
     {{/if}}
     <div class="alert danger hide">
         <button type="button" class="close">&times;</button>
         <p>
-          <strong>Aj då!</strong> Ditt svar var fel. Försök igen!
+            <strong>Aj då!</strong> Ditt svar var fel. Försök igen!
         </p>
     </div>
 
     <div class="panel">
+      <div class="languages">
+        <span id="swedish" class="{{#if activeLanguage 'swedish'}}active{{/if}}"></span>
+        <span id="english" class="{{#if activeLanguage 'english'}}active{{/if}}"></span>
+      </div>
         <div class="solvedText {{#if currentUser}}{{#if solved}}isSolved{{/if}}{{/if}}">
             <span>{{#if currentUser}}{{#if solved}}Löst{{else}}Ej löst{{/if}}{{/if}}</span>
         </div>
         <p>
             {{#if currentUser}}{{#if solved}}
-              <div class="solvedPlaceholder"></div>
+            <div class="solvedPlaceholder"></div>
             {{/if}}{{/if}}
+
+            {{#if activeLanguage 'swedish'}}
             {{{description_sv}}}
+            {{else}}
+            {{{description}}}
+            {{/if}}
+
             {{toggleCopyButton}}
         </p>
     </div>
@@ -41,44 +49,39 @@
             Vänligen <a href="{{pathFor 'atSignIn'}}" class="alert-link">logga in</a> eller <a href="{{pathFor 'atSignUp'}}" class="alert-link">registrera dig</a> för möjligheten att lösa luckan och bli med i utlottningen av [x]!
         </p>
         {{/if}} {{else}} {{#unless solved}}
-            <p id="inactiveAnswer">Det är inte längre möjligt att svara på den här luckan, men du kan ju försöka lösa den ändå för skojs skull!</p>
+        <p id="inactiveAnswer">Det är inte längre möjligt att svara på den här luckan, men du kan ju försöka lösa den ändå för skojs skull!</p>
         {{/unless}} {{/unless}}
         <p id="answer">{{!-- will be injected here by jQuery --}}</p>
     </div>
-      {{#if solvedOrNoLongerActive}}
-      <div class="reveal">
-          <p>Visa lösning</p>
-      </div>
-      {{else}}
-      <div class="revealPlaceholder">
-      </div>
-      {{/if}}
-      <div class="extras">
-          <div class="stats">
-              <span>Löst av</span>
-              <div class="stats-content">{{stats.solveCount}}</div>
-          </div>
-          <div class="stats">
-              <span>Försökt löst av</span>
-              <div class="stats-content">{{stats.solveAttempts}}</div>
-          </div>
-      </div>
-      {{#if activeTo}}
-      <div class="closing">
-          {{#if stillActive}}
-          <p>{{problemEnds}}</p>
-          {{else}}
-          <p>Tiden har gått ut!</p>
-          {{/if}}
-      </div>
-      {{/if}}
+    {{#if solvedOrNoLongerActive}}
+    <div class="reveal">
+        <p>Visa lösning</p>
+    </div>
+    {{else}}
+    <div class="revealPlaceholder">
+    </div>
+    {{/if}}
+    <div class="extras">
+        <div class="stats">
+            <span>Löst av</span>
+            <div class="stats-content">{{stats.solveCount}}</div>
+        </div>
+        <div class="stats">
+            <span>Försökt löst av</span>
+            <div class="stats-content">{{stats.solveAttempts}}</div>
+        </div>
+    </div>
+    {{#if activeTo}}
+    <div class="closing">
+        {{#if stillActive}}
+        <p>{{problemEnds}}</p>
+        {{else}}
+        <p>Tiden har gått ut!</p>
+        {{/if}}
+    </div>
+    {{/if}}
     <div class="clear"></div>
     {{#if solvedOrNoLongerActive}}
-    <h2 class="center-text borders margin">Kommentarer</h2>
-        {{#if currentUser}}
-            {{> UI.dynamic template = comment_form}}
-        {{/if}}
-        {{> UI.dynamic template = comment_list}}
-    {{/if}}
+    <h2 class="center-text borders margin">Kommentarer</h2> {{#if currentUser}} {{> UI.dynamic template = comment_form}} {{/if}} {{> UI.dynamic template = comment_list}} {{/if}}
 
 </template>

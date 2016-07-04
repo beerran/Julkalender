@@ -33,7 +33,14 @@ var setTickingSecond = function() {
     secondTick.changed();
 };
 
+if(Session.get('activeLanguage') === undefined) {
+  Session.set('activeLanguage', 'swedish');
+}
+
 Template.showProblem.helpers({
+  activeLanguage: function(language) {
+    return Session.get('activeLanguage') === language;
+  },
     solvedOrNoLongerActive: function() {
         if (this.answers !== undefined && this.answers.length > 0) {
             if (this.answers && this.answers[0].solved) {
